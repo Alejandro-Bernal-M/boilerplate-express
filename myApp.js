@@ -15,6 +15,12 @@ function handler2(req, res){
 
 // app.get("/", handler);
 
+// root middleware function
+app.use((req, res, next) => {
+  console.log( `${req.method} ${req.path} - ${req.ip}`)
+  next()
+})
+
 // Normal usage
 app.use(express.static(__dirname + "/public"));
 
